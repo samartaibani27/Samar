@@ -1,4 +1,2 @@
-// Deprecated wrapper removed
-export function SmoothScroll({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+// Deprecated and unused SmoothScroll
+export {};
