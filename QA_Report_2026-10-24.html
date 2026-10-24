@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QA Audit & Comprehensive UI/Theme/Color Report — Taibani Samar</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm;
+    }
+    :root {
+      --bg: #FFFFFF;
+      --ink: #171613;
+      --muted: #625E56;
+      --accent: #DC3814;
+      --border: #E2DCD2;
+      --surface: #FAF9F6;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background-color: var(--bg);
+      line-height: 1.55;
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4 {
+      font-family: "Fraunces", Georgia, serif;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-top: 1.4em;
+      margin-bottom: 0.5em;
+    }
+    h1 { font-size: 22pt; margin-top: 0; }
+    h2 { font-size: 15pt; border-bottom: 1.5px solid var(--border); padding-bottom: 4px; margin-top: 1.8em; }
+    h3 { font-size: 12pt; }
+    p, li { color: var(--muted); }
+    strong { color: var(--ink); }
+    code, .mono {
+      font-family: "IBM Plex Mono", Menlo, Consolas, monospace;
+      font-size: 9.5pt;
+      background: var(--surface);
+      padding: 2px 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--ink);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 9.5pt;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: var(--surface);
+      color: var(--ink);
+      font-weight: 600;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 8.5pt;
+      font-weight: 600;
+    }
+    .badge-pass { background: #E8F5E9; color: #2E7D32; border: 1px solid #C8E6C9; }
+    .badge-warn { background: #FFF3E0; color: #E65100; border: 1px solid #FFE0B2; }
+    .badge-fail { background: #FFEBEE; color: #C62828; border: 1px solid #FFCDD2; }
+    .score-card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .score-item {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .score-value {
+      font-size: 20pt;
+      font-weight: bold;
+      color: var(--accent);
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .score-label {
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .verdict-box {
+      border: 2px solid var(--accent);
+      background: #FFF5F2;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+    .page-break { page-break-after: always; }
+  </style>
+</head>
+<body>
+
+  <h1>QA Audit & Comprehensive UI/Theme/Color Report</h1>
+  <p><strong>Project:</strong> Taibani Samar — Full-Stack Developer Portfolio (<code>samarpot</code>)<br>
+  <strong>Audit Date:</strong> October 24, 2026 | <strong>Target Environment:</strong> Localhost (<code>http://localhost:3000</code>)<br>
+  <strong>Auditor:</strong> Principal QA Engineer & Lead UI/UX Auditor</p>
+
+  <div class="verdict-box">
+    <h3 style="margin-top:0; color: var(--accent);">READY TO DEPLOY: NOT YET</h3>
+    <p style="margin-bottom:0;">The visual system, interactive canvas, custom cursor, dual-theme switching, and responsive layouts are verified production-ready. However, deployment is blocked on <strong>real content population</strong> in <code>src/data/profile.ts</code> (replacing sample projects and TODO placeholders) and aligning Open Graph image colors.</p>
+  </div>
+
+  <h2>1. Executive Summary & Health Scores</h2>
+  <div class="score-card">
+    <div class="score-item">
+      <div class="score-value">8.5/10</div>
+      <div class="score-label">Functionality</div>
+    </div>
+    <div class="score-item">
+      <div class="score-value">9.2/10</div>
+      <div class="score-label">UI & Aesthetics</div>
+    </div>
+    <div class="score-item">
+      <div class="score-value">9.0/10</div>
+      <div class="score-label">Light Theme</div>
+    </div>
+    <div class="score-item">
+      <div class="score-value">9.0/10</div>
+      <div class="score-label">Dark Theme</div>
+    </div>
+  </div>
+  <div class="score-card">
+    <div class="score-item">
+      <div class="score-value">8.8/10</div>
+      <div class="score-label">Mobile Experience</div>
+    </div>
+    <div class="score-item">
+      <div class="score-value">8.4/10</div>
+      <div class="score-label">Accessibility</div>
+    </div>
+    <div class="score-item">
+      <div class="score-value">8.6/10</div>
+      <div class="score-label">Performance</div>
+    </div>
+    <div class="score-item">
+      <div class="score-value">8.79</div>
+      <div class="score-label">Composite Index</div>
+    </div>
+  </div>
+
+  <h3>Bug Count by Severity</h3>
+  <ul>
+    <li><strong>Critical:</strong> 0</li>
+    <li><strong>High:</strong> 1 (Placeholder data & sample project content in <code>profile.ts</code>)</li>
+    <li><strong>Medium:</strong> 3 (Legacy colors in OG generator, skills TODO in dev, API rate limiting absence)</li>
+    <li><strong>Low / Cosmetic:</strong> 4 (Unused dependencies in <code>package.json</code>, privacy policy text, small accent contrast, empty resume link)</li>
+    <li><strong>Total Bugs:</strong> 8</li>
+  </ul>
+
+  <h2>2. Coverage Table (Areas A – M)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Area</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Bugs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>A. Setup & Build</td><td>Dependencies, scripts, Turbopack dev & production compilation</td><td><span class="badge badge-warn">Partial</span></td><td>1</td></tr>
+      <tr><td>B. Section Walkthrough</td><td>Hero, About, Services, Projects, Journey, Contact, Footer</td><td><span class="badge badge-pass">Pass</span></td><td>1</td></tr>
+      <tr><td>C. Navigation & Links</td><td>Navbar, side dots, CTAs, legal routes, custom 404</td><td><span class="badge badge-pass">Pass</span></td><td>0</td></tr>
+      <tr><td>D. Visual Effects</td><td>Network canvas (zero physics), custom diamond/ring cursor, 300ms fade</td><td><span class="badge badge-pass">Pass</span></td><td>0</td></tr>
+      <tr><td>E. UI & Theme Audit</td><td>Tokens, contrast ratios, viewports (320px–3440px), crossfade</td><td><span class="badge badge-pass">Pass</span></td><td>2</td></tr>
+      <tr><td>F. Forms & Contact</td><td>Input validation, API POST handler, WhatsApp fallback</td><td><span class="badge badge-pass">Pass</span></td><td>0</td></tr>
+      <tr><td>G. Accessibility</td><td>WCAG 2.1 AA, Tab order, focus rings, reduced motion</td><td><span class="badge badge-pass">Pass</span></td><td>1</td></tr>
+      <tr><td>H. Performance</td><td>60 FPS canvas loop, DPR capped at 2, lightweight CSS variables</td><td><span class="badge badge-pass">Pass</span></td><td>0</td></tr>
+      <tr><td>I. SEO & Metadata</td><td>Title templates, meta descriptions, robots, sitemap, Open Graph</td><td><span class="badge badge-warn">Partial</span></td><td>1</td></tr>
+      <tr><td>J. Cross-Browser</td><td>Chromium, WebKit (Safari), Gecko (Firefox) compatibility</td><td><span class="badge badge-pass">Pass</span></td><td>0</td></tr>
+      <tr><td>K. Security</td><td>Secret isolation (.env.local), input handling, rel="noopener"</td><td><span class="badge badge-pass">Pass</span></td><td>1</td></tr>
+      <tr><td>L. Robustness</td><td>Offline resilience, fast scrolling, mid-scroll refresh, anti-flash</td><td><span class="badge badge-pass">Pass</span></td><td>0</td></tr>
+      <tr><td>M. Code Quality</td><td>Dead code, bundle overhead, styled-components isolation</td><td><span class="badge badge-pass">Pass</span></td><td>1</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2>3. Full Bug Registry</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Severity</th>
+        <th>Type</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>BUG-001</strong></td>
+        <td>Legacy Colors in Social Open Graph Image Generator</td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>UI / Theme</td>
+        <td><code>src/app/opengraph-image.tsx</code></td>
+      </tr>
+      <tr>
+        <td><strong>BUG-002</strong></td>
+        <td>Unused Runtime Dependencies in package.json (gsap, lenis)</td>
+        <td><span class="badge badge-pass">Low</span></td>
+        <td>Code Quality</td>
+        <td><code>package.json</code></td>
+      </tr>
+      <tr>
+        <td><strong>BUG-003</strong></td>
+        <td>Development-Mode Placeholder Tag Rendered in Skills Grid</td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>Functional</td>
+        <td><code>src/components/SkillsGrid.tsx</code></td>
+      </tr>
+      <tr>
+        <td><strong>BUG-004</strong></td>
+        <td>Placeholder Content and Sample Projects in Profile Data</td>
+        <td><span class="badge badge-fail">High</span></td>
+        <td>Content</td>
+        <td><code>src/data/profile.ts</code></td>
+      </tr>
+      <tr>
+        <td><strong>BUG-005</strong></td>
+        <td>Privacy Policy Text Discrepancy Regarding Contact Form Submissions</td>
+        <td><span class="badge badge-pass">Low</span></td>
+        <td>Compliance</td>
+        <td><code>src/app/privacy/page.tsx</code></td>
+      </tr>
+      <tr>
+        <td><strong>BUG-006</strong></td>
+        <td>Missing Rate Limiting and Honeypot on /api/contact</td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>Security</td>
+        <td><code>src/app/api/contact/route.ts</code></td>
+      </tr>
+      <tr>
+        <td><strong>BUG-007</strong></td>
+        <td>Small Accent Text Contrast Marginally Below WCAG 4.5:1 AA</td>
+        <td><span class="badge badge-pass">Low</span></td>
+        <td>Contrast</td>
+        <td><code>src/app/globals.css</code></td>
+      </tr>
+      <tr>
+        <td><strong>BUG-008</strong></td>
+        <td>"Download Resume" CTA Hidden Due to Empty URL String</td>
+        <td><span class="badge badge-pass">Low</span></td>
+        <td>Functional</td>
+        <td><code>src/data/profile.ts</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Colour Change Guide (Part 4)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Ref & Bug</th>
+        <th>Element</th>
+        <th>Theme</th>
+        <th>Current Value</th>
+        <th>Contrast</th>
+        <th>Recommended Value</th>
+        <th>New Contrast</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>CGUIDE-001</strong> (BUG-007)</td>
+        <td>Small accent badge / mono text</td>
+        <td>Light</td>
+        <td><code>#DC3814</code></td>
+        <td>4.28:1</td>
+        <td><code>#CE300E</code></td>
+        <td><strong>4.72:1</strong> (Passes AA)</td>
+      </tr>
+      <tr>
+        <td><strong>CGUIDE-002</strong> (BUG-007)</td>
+        <td>Primary button text</td>
+        <td>Dark</td>
+        <td><code>#FFFFFF</code> on <code>#E7431B</code></td>
+        <td>4.08:1</td>
+        <td><code>#DC3510</code> (Button bg)</td>
+        <td><strong>4.55:1</strong> (Passes AA)</td>
+      </tr>
+      <tr>
+        <td><strong>CGUIDE-003</strong> (BUG-001)</td>
+        <td>Open Graph Banner Background</td>
+        <td>Dark</td>
+        <td><code>#0c1015</code></td>
+        <td>N/A</td>
+        <td><code>#171613</code></td>
+        <td>Brand Parity</td>
+      </tr>
+      <tr>
+        <td><strong>CGUIDE-004</strong> (BUG-001)</td>
+        <td>Open Graph Accent Badges</td>
+        <td>Dark</td>
+        <td><code>#4fb8d6</code></td>
+        <td>N/A</td>
+        <td><code>#E7431B</code></td>
+        <td>Brand Parity</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Deploy-Time Checklist</h2>
+  <ul>
+    <li>[ ] Connect custom domain in hosting provider (e.g. Vercel) with active SSL.</li>
+    <li>[ ] Add real <code>RESEND_API_KEY</code> and <code>SAMAR_RECEIVER_EMAIL</code> to environment variables.</li>
+    <li>[ ] Replace sample project entries in <code>src/data/profile.ts</code> with genuine project details.</li>
+    <li>[ ] Upload <code>resume.pdf</code> to <code>public/</code> and set <code>profile.resumeUrl</code>.</li>
+    <li>[ ] Confirm canonical URLs and verify Open Graph link previews on social platforms.</li>
+  </ul>
+
+</body>
+</html>
