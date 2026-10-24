@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { IntroLoader } from "@/components/IntroLoader";
 import { profile } from "@/data/profile";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
 const fraunces = Fraunces({
@@ -156,6 +157,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <SpeedInsights />
         <Analytics />
       </body>
     </html>
